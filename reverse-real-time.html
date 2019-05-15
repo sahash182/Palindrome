@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Palindrom Real Time Check</title>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"  rel="stylesheet">
+</head>
+<body> 
+   <center><h1>Palindrome App</h1></center> <br><br>
+   <div class="col-sm-4 col-sm-offset-4">
+    <legend>Check Palindrome</legend>
+    <form>
+       <input type="text" class="form-control" placeholder="Enter Text Here" name="" id="reversTheName" onkeyup="reverseString()"><br>
+       <input type="text" class="form-control" placeholder="See Reversed Text Here" name="" id="showData"><br><br>
+       <input type="button" class="btn btn-primary" value="Check Palindrome" name="" onclick="checkPalindrome()"> <input type="button" value="Restart" class="btn btn-success" onClick="window.location.reload()"> </center> <br>
+    </form>
+ </div>
+ <br>
+ <div class="col-sm-4 col-sm-offset-4">
+   <h1 class="answer"></h1>
+
+
+<script>
+ //function to reverse the string using decremental loop
+ function reverseString(){
+   var str = document.getElementById('reversTheName').value;
+   var newString="";
+   for(var i=str.length-1; i>=0; i--){
+     newString += str[i];
+  }
+  document.getElementById('showData').value = newString;
+}
+
+ // function to show if the the results are equal and append the result into the DOM
+function checkPalindrome(){
+   var before = document.getElementById('reversTheName').value;
+   var after =  document.getElementById('showData').value;   
+   if (before == after) {
+      $(".answer").append("<hr/>" + document.getElementById('reversTheName').value + "  is Palindrome " );
+     // alert(document.getElementById('reversTheName').value + "  is Palindrome");
+  }else{
+   $(".answer").append("<hr/>" + document.getElementById('reversTheName').value + "  is not Palindrome ");
+       //  alert(document.getElementById('reversTheName').value + "  is not Palindrome");
+    }
+
+ }
+
+</script>
+<script  src="https://code.jquery.com/jquery-3.4.1.min.js"  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
+
+</body>
+</html>
